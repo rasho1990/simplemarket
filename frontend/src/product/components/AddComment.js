@@ -6,17 +6,14 @@ import {
     VALIDATOR_MINLENGTH,
     VALIDATOR_REQUIRE, isValid
 } from '../../util/validators.js';
-
 import CommentItem from './CommentItem';
 const AddComment = () => {
-
     const addTask = () => {
         setOpen(Math.random());
         setName('');
         setReview('');
         setGender('');
         onChange(null);
-
     }
     const [comments, setComments] = useState([]);
     const [open, setOpen] = useState(false);
@@ -29,20 +26,17 @@ const AddComment = () => {
         const validators = [VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(numOfLetters)];
         return isValid(val, validators);
     }
-
     const  handleChangeOnRate=(e, { rating })=> {
         e.preventDefault();
         setrate(rating);
       }
     const saveReview = () => {
-
         const d = new Date(value)
         const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d)
         const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
         const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
         const hour = new Intl.DateTimeFormat('en', { hour: '2-digit' }).format(d)
         const min = new Intl.DateTimeFormat('en', { minute: '2-digit' }).format(d)
-     console.log(rate)
         setComments([...comments, {
             author: name,
             store: gender === '1' ? "https://res.cloudinary.com/dfdocrzsc/image/upload/v1607724138/Users/images/man5-512_ijsokk.png" : "https://res.cloudinary.com/dfdocrzsc/image/upload/v1607724073/Users/images/avatar-woman_dgqy4n.png",
@@ -51,9 +45,7 @@ const AddComment = () => {
             created: `${da}-${mo}-${ye} ,${hour} : ${min}`
         }])
         setOpen(false)
-
     }
-
     return <div className="ui comments">
         <h3 className="ui dividing header">Reviews</h3>
         {comments.length !== 0 && <CommentItem reviews={comments} />}
@@ -91,7 +83,6 @@ const AddComment = () => {
                     onChange={onChange}
                     value={value}
                     required={true}
-
                 />
                 {value === null && <ValidationError err="Please enter a valid date" />}
             </Modal.Content>
