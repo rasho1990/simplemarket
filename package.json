@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.5.0",
     "file-system": "^2.2.2",
     "react": "^17.0.1",
+    "react-datetime-picker": "^3.0.4",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
     "react-scripts": "4.0.1",
